@@ -9,14 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "ContactDetailsViewController.h"
 
-@interface ViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property (nonatomic, retain) NSMutableArray *randomUserContactsData;
+@property (nonatomic, retain) NSMutableArray *displayedContactsData;
 @property (nonatomic, retain) IBOutlet UITableView *contactListTableViewController;
 
 @property (nonatomic, retain) ContactDetailsViewController *contactDetailsViewController;
 
-- (void) setup;
+@property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
 
+@property (nonatomic, retain) IBOutlet UIButton *reloadData;
+
+
+- (void) setup;
+- (IBAction)refresh:(id)sender;
 @end
 

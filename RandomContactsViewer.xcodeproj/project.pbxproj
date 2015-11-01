@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		A510E2DD1BE3FCE4007420B6 /* ContactDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A510E2DC1BE3FCE4007420B6 /* ContactDetailsViewController.m */; };
 		A510E2E01BE40FD7007420B6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A510E2DF1BE40FD7007420B6 /* SystemConfiguration.framework */; };
+		A5AE32C91BE6CDBE00EC7251 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AE32C81BE6CDBE00EC7251 /* Reachability.m */; };
+		A5AE32CD1BE6CF3600EC7251 /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AE32CC1BE6CF3600EC7251 /* Helpers.m */; };
+		A5AE32D21BE6D7AD00EC7251 /* 954.png in Resources */ = {isa = PBXBuildFile; fileRef = A5AE32D11BE6D7AD00EC7251 /* 954.png */; };
+		A5AE32D41BE6DB1000EC7251 /* Restart-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A5AE32D31BE6DB1000EC7251 /* Restart-50.png */; };
 		A5F96D451BE2AAFC00B47452 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F96D441BE2AAFC00B47452 /* main.m */; };
 		A5F96D481BE2AAFC00B47452 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F96D471BE2AAFC00B47452 /* AppDelegate.m */; };
 		A5F96D4B1BE2AAFC00B47452 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F96D4A1BE2AAFC00B47452 /* ViewController.m */; };
@@ -43,6 +47,12 @@
 		A510E2DE1BE3FD02007420B6 /* ContactDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactDetailsViewController.h; sourceTree = "<group>"; };
 		A510E2DF1BE40FD7007420B6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A510E2E11BE41198007420B6 /* ViewController_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController_Private.h; sourceTree = "<group>"; };
+		A5AE32C71BE6CDBE00EC7251 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		A5AE32C81BE6CDBE00EC7251 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		A5AE32CC1BE6CF3600EC7251 /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
+		A5AE32CE1BE6CF3E00EC7251 /* Helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
+		A5AE32D11BE6D7AD00EC7251 /* 954.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 954.png; sourceTree = "<group>"; };
+		A5AE32D31BE6DB1000EC7251 /* Restart-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Restart-50.png"; sourceTree = "<group>"; };
 		A5F96D401BE2AAFC00B47452 /* RandomContactsViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomContactsViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F96D441BE2AAFC00B47452 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5F96D461BE2AAFC00B47452 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,10 +101,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A5F96D371BE2AAFC00B47452 = {
+		A5AE32C61BE6CDA800EC7251 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				A5AE32C71BE6CDBE00EC7251 /* Reachability.h */,
+				A5AE32C81BE6CDBE00EC7251 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		A5AE32CA1BE6CDF200EC7251 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				A510E2DF1BE40FD7007420B6 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5F96D371BE2AAFC00B47452 = {
+			isa = PBXGroup;
+			children = (
 				A5F96D421BE2AAFC00B47452 /* RandomContactsViewer */,
 				A5F96D5F1BE2AAFC00B47452 /* RandomContactsViewerTests */,
 				A5F96D6A1BE2AAFC00B47452 /* RandomContactsViewerUITests */,
@@ -115,21 +141,27 @@
 		A5F96D421BE2AAFC00B47452 /* RandomContactsViewer */ = {
 			isa = PBXGroup;
 			children = (
+				A5AE32CA1BE6CDF200EC7251 /* Frameworks */,
+				A5AE32C61BE6CDA800EC7251 /* Reachability */,
 				A5F96D461BE2AAFC00B47452 /* AppDelegate.h */,
 				A5F96D471BE2AAFC00B47452 /* AppDelegate.m */,
 				A5F96D491BE2AAFC00B47452 /* ViewController.h */,
 				A5F96D4A1BE2AAFC00B47452 /* ViewController.m */,
-				A5F96D7B1BE2BCFA00B47452 /* Constants.h */,
-				A5F96D4C1BE2AAFC00B47452 /* Main.storyboard */,
-				A5F96D521BE2AAFC00B47452 /* Assets.xcassets */,
-				A5F96D541BE2AAFC00B47452 /* LaunchScreen.storyboard */,
-				A5F96D571BE2AAFC00B47452 /* Info.plist */,
-				A5F96D4F1BE2AAFC00B47452 /* RandomContactsViewer.xcdatamodeld */,
-				A5F96D431BE2AAFC00B47452 /* Supporting Files */,
 				A5F96D7C1BE2E9A700B47452 /* UserModel.h */,
 				A5F96D7D1BE2E9B300B47452 /* UserModel.m */,
 				A510E2DC1BE3FCE4007420B6 /* ContactDetailsViewController.m */,
 				A510E2DE1BE3FD02007420B6 /* ContactDetailsViewController.h */,
+				A5F96D7B1BE2BCFA00B47452 /* Constants.h */,
+				A5F96D4C1BE2AAFC00B47452 /* Main.storyboard */,
+				A5F96D521BE2AAFC00B47452 /* Assets.xcassets */,
+				A5AE32D11BE6D7AD00EC7251 /* 954.png */,
+				A5AE32D31BE6DB1000EC7251 /* Restart-50.png */,
+				A5F96D541BE2AAFC00B47452 /* LaunchScreen.storyboard */,
+				A5F96D571BE2AAFC00B47452 /* Info.plist */,
+				A5F96D4F1BE2AAFC00B47452 /* RandomContactsViewer.xcdatamodeld */,
+				A5F96D431BE2AAFC00B47452 /* Supporting Files */,
+				A5AE32CC1BE6CF3600EC7251 /* Helpers.m */,
+				A5AE32CE1BE6CF3E00EC7251 /* Helpers.h */,
 			);
 			path = RandomContactsViewer;
 			sourceTree = "<group>";
@@ -264,8 +296,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5AE32D21BE6D7AD00EC7251 /* 954.png in Resources */,
 				A5F96D561BE2AAFC00B47452 /* LaunchScreen.storyboard in Resources */,
 				A5F96D531BE2AAFC00B47452 /* Assets.xcassets in Resources */,
+				A5AE32D41BE6DB1000EC7251 /* Restart-50.png in Resources */,
 				A5F96D4E1BE2AAFC00B47452 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,9 +328,11 @@
 				A5F96D4B1BE2AAFC00B47452 /* ViewController.m in Sources */,
 				A5F96D7E1BE2E9B300B47452 /* UserModel.m in Sources */,
 				A5F96D511BE2AAFC00B47452 /* RandomContactsViewer.xcdatamodeld in Sources */,
+				A5AE32C91BE6CDBE00EC7251 /* Reachability.m in Sources */,
 				A5F96D481BE2AAFC00B47452 /* AppDelegate.m in Sources */,
 				A510E2DD1BE3FCE4007420B6 /* ContactDetailsViewController.m in Sources */,
 				A5F96D451BE2AAFC00B47452 /* main.m in Sources */,
+				A5AE32CD1BE6CF3600EC7251 /* Helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
