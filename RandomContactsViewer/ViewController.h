@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContactDetailsViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, retain) NSMutableArray *randomUserContactsData;
+@property (nonatomic, retain) IBOutlet UITableView *contactListTableViewController;
+
+@property (nonatomic, retain) ContactDetailsViewController *contactDetailsViewController;
+
+- (void) setup;
 
 @end
 
