@@ -7,5 +7,6 @@
 //
 
 #define RANDOM_USER_API_URL @"http://api.randomuser.me/?results=%d"
+#define MAX_NUMBER_OF_CONTACTS 200
 
 /* Constants_h */

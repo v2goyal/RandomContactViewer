@@ -36,7 +36,7 @@
 - (void)viewDidAppear:(BOOL)animated{
     BOOL hasInternet = [Helpers testInternetConnection];
     
-    if(hasInternet == false && self.randomUserContactsData.count == 0){        
+    if(hasInternet == false && self.randomUserContactsData.count == 0){
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"No internet connection!" message:@"Please connect to an internet connection and try again later." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelAction = [UIAlertAction
                                        actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
@@ -95,11 +95,11 @@
     static NSString *MyIdentifier = @"MyIdentifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-
+    
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                       reuseIdentifier:MyIdentifier];
+                                      reuseIdentifier:MyIdentifier];
     }
     
     if ([tableView respondsToSelector:@selector(setSeparatorInset:)])
@@ -120,7 +120,7 @@
     UserModel *currentUser = [self.displayedContactsData objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", currentUser.firstName, currentUser.lastName];
-
+    
     return cell;
 }
 
@@ -159,7 +159,7 @@
     if(searchText.count == 0 || searchText.count > 2){
         return;
     }else if(searchText.count == 1){
-    //Search if query exists in user's first or last name
+        //Search if query exists in user's first or last name
         NSPredicate* predicate = [NSPredicate predicateWithFormat:filter, @"firstName", [searchText objectAtIndex:0]];
         NSPredicate* predicateLastName = [NSPredicate predicateWithFormat:filter, @"lastName", [searchText objectAtIndex:0]];
         self.displayedContactsData = [[self.randomUserContactsData filteredArrayUsingPredicate:predicate] mutableCopy];
@@ -173,13 +173,13 @@
         self.displayedContactsData = [[self.displayedContactsData sortedArrayUsingDescriptors:sortDescriptors] mutableCopy];
         
     }else if(searchText.count == 2){
-    //Query user full name to filter contacts
+        //Query user full name to filter contacts
         NSPredicate* predicate = [NSPredicate predicateWithFormat:filter, @"firstName", [searchText objectAtIndex:0]];
         NSPredicate* predicateLastName = [NSPredicate predicateWithFormat:filter, @"lastName", [searchText objectAtIndex:1]];
         self.displayedContactsData = [[self.randomUserContactsData filteredArrayUsingPredicate:predicate] mutableCopy];
         self.displayedContactsData = [[self.displayedContactsData filteredArrayUsingPredicate:predicateLastName] mutableCopy];
     }
-
+    
     [self.contactListTableViewController reloadData];
     [searchBar resignFirstResponder];
 }
@@ -193,14 +193,15 @@
 
 - (IBAction)refresh:(id)sender {
     BOOL hasInternet = [Helpers testInternetConnection];
-
+    
     if(hasInternet == false){
         return;
     }
-
+    
     [self connectAndLoadData];
 }
 
+// If device has internet, connects to random user api and retrieves data
 - (void) connectAndLoadData{
     BOOL hasInternet = [Helpers testInternetConnection];
     
@@ -211,7 +212,7 @@
     [self.randomUserContactsData removeAllObjects];
     [self.displayedContactsData removeAllObjects];
     
-    int numberOfContacts = rand()%110+1;
+    int numberOfContacts = rand()%MAX_NUMBER_OF_CONTACTS+1;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:RANDOM_USER_API_URL, numberOfContacts]]];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
