@@ -164,6 +164,14 @@
         NSPredicate* predicateLastName = [NSPredicate predicateWithFormat:filter, @"lastName", [searchText objectAtIndex:0]];
         self.displayedContactsData = [[self.randomUserContactsData filteredArrayUsingPredicate:predicate] mutableCopy];
         [self.displayedContactsData addObjectsFromArray:[[self.randomUserContactsData filteredArrayUsingPredicate:predicateLastName] mutableCopy]];
+        
+        //Remove duplicates
+        self.displayedContactsData = [[[NSOrderedSet orderedSetWithArray:self.displayedContactsData] array] mutableCopy];
+        
+        //Sort by first name
+        NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"firstName" ascending:YES]];
+        self.displayedContactsData = [[self.displayedContactsData sortedArrayUsingDescriptors:sortDescriptors] mutableCopy];
+        
     }else if(searchText.count == 2){
     //Query user full name to filter contacts
         NSPredicate* predicate = [NSPredicate predicateWithFormat:filter, @"firstName", [searchText objectAtIndex:0]];
